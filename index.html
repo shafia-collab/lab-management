@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratory Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Laboratory Management System</h1>
+    <p>Manage Patients, Tests, Samples and Reports</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#patients">Patients</a>
+    <a href="#orders">Test Orders</a>
+    <a href="#samples">Samples</a>
+    <a href="#reports">Reports</a>
+    <a href="#guidelines">Guidelines</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <h2>Welcome to Laboratory Management System</h2>
+      <p>This system helps diagnostic laboratories manage patient information, test orders, samples and reports.</p>
+    </section>
+
+    <section class="card">
+      <h2>About Laboratory</h2>
+      <p>A Laboratory Management System helps laboratories store and manage patient details, test information, samples and laboratory reports.</p>
+    </section>
+
+    <!-- PATIENTS -->
+    <section class="card" id="patients">
+      <h2>Patient Information</h2>
+      <div class="form-box">
+        <label for="pName">Patient Name:</label>
+        <input type="text" id="pName">
+
+        <label for="pAge">Age:</label>
+        <input type="number" id="pAge" min="0" max="120">
+
+        <label for="pGender">Gender:</label>
+        <select id="pGender">
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+
+        <label for="pPhone">Phone Number:</label>
+        <input type="text" id="pPhone" placeholder="9876543210" maxlength="10">
+
+        <button id="addPatientBtn">Add Patient</button>
+      </div>
+
+      <h3>Patient List</h3>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Phone</th></tr>
+        </thead>
+        <tbody id="patientTable"></tbody>
+      </table>
+    </section>
+
+    <!-- TEST ORDERS -->
+    <section class="card" id="orders">
+      <h2>Test Orders</h2>
+      <div class="form-box">
+        <label for="orderPatient">Patient Name:</label>
+        <select id="orderPatient">
+          <option value="">-- Select Patient --</option>
+        </select>
+
+        <label for="orderTest">Select Test:</label>
+        <select id="orderTest">
+          <option value="">-- Select Test --</option>
+          <option>Thyroid Test</option>
+          <option>Kidney Function Test</option>
+          <option>Liver Function Test</option>
+          <option>Blood Sugar Test</option>
+          <option>Lipid Profile</option>
+          <option>Complete Blood Count</option>
+        </select>
+
+        <button id="addOrderBtn">Add Test</button>
+      </div>
+
+      <h3>Test Order List</h3>
+      <table>
+        <thead>
+          <tr><th>Test ID</th><th>Patient</th><th>Test Name</th></tr>
+        </thead>
+        <tbody id="orderTable"></tbody>
+      </table>
+    </section>
+
+    <!-- SAMPLES -->
+    <section class="card" id="samples">
+      <h2>Sample Management</h2>
+      <div class="form-box">
+        <label for="sampleOrder">Select Test Order:</label>
+        <select id="sampleOrder">
+          <option value="">-- Select Test Order --</option>
+        </select>
+
+        <label for="samplePatient">Patient Name:</label>
+        <input type="text" id="samplePatient" placeholder="Filled from the test order" readonly>
+
+        <label for="sampleTest">Test Name:</label>
+        <input type="text" id="sampleTest" placeholder="Filled from the test order" readonly>
+
+        <label for="sampleType">Sample Type:</label>
+        <select id="sampleType">
+          <option value="">-- Select Sample --</option>
+          <option>Blood</option>
+          <option>Urine</option>
+          <option>Saliva</option>
+          <option>Stool</option>
+        </select>
+
+        <label for="sampleValue">Test Value:</label>
+        <input type="number" id="sampleValue" placeholder="Enter test value">
+
+        <button id="addSampleBtn">Add Sample &amp; Generate Report</button>
+      </div>
+
+      <h3>Sample List</h3>
+      <table>
+        <thead>
+          <tr><th>Sample ID</th><th>Patient</th><th>Test</th><th>Sample Type</th><th>Test Value</th></tr>
+        </thead>
+        <tbody id="sampleTable"></tbody>
+      </table>
+    </section>
+
+    <!-- REPORTS -->
+    <section class="card" id="reports">
+      <h2>Laboratory Reports &amp; History</h2>
+      <p>Previous laboratory reports are stored below for reference.</p>
+      <button id="downloadBtn" class="download-btn">Download Last Report</button>
+
+      <table>
+        <thead>
+          <tr><th>Report ID</th><th>Patient</th><th>Test</th><th>Sample Type</th><th>Actual Value</th><th>Result</th></tr>
+        </thead>
+        <tbody id="reportTable"></tbody>
+      </table>
+    </section>
+
+    <!-- GUIDELINES -->
+    <section class="card" id="guidelines">
+      <h2>Laboratory Guidelines</h2>
+      <ul>
+        <li>Verify patient information before conducting tests.</li>
+        <li>Collect samples carefully.</li>
+        <li>Enter the actual laboratory test value.</li>
+        <li>Label every sample correctly.</li>
+        <li>Maintain patient information safely.</li>
+        <li>Keep laboratory records organized.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
